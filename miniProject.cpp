@@ -1,40 +1,39 @@
 #include<iostream>
+#include "miniProject.h"
 using namespace std;
-
-void newCustomer(){
-    //push();
-    cout<< "***->->->Wait for your turn<-<-<-***" <<endl <<endl <<endl;
+Queue::Queue(){
+    front = -1;
+    rear = -1;
 }
 
-void callCustomer(){
-    //pop();
-    cout << /*pop()*/ ",go to the counter"<<endl<<endl <<endl ;
+bool Queue::isFull(){
+    return rear>= MaxCustomer-1;
 }
-int main(){
-    int a;
-    loop:
-    cout<<"Enter 0 for getting a token"<<endl;
-    cout<<"Enter 1 to call a customer" <<endl;
-    cout<<"Enter 9 to terminate the program "<<endl;
-    cin>>a;
-    if (a==0){
-        newCustomer();
-        goto loop;
+bool Queue::isEmpty(){
+    return (front==rear);
+}
+
+void Queue::enqueue(){
+    if(isFull()){
+        cout << "***->->->Cannot Serve you today. Customer to be served is limited. Please contact Bank Manager <-<-<-***"<<endl <<endl <<endl;
     }
-        else if(a==1){
-        callCustomer();
-        goto loop;
-        }
-        else if(a==9){
-        goto loop2;
-        }
-            else{
-                cout<<"Enter correct command"<<endl;
-                goto loop;
-            }
-loop2:
-cout<<"The token service is currently off" <<endl;
-
-
-
+    else{
+        rear+= 1;
+        int CustomerNum = rear+1;
+        data[rear] = CustomerNum;
+        cout<< "***->->->Wait for your turn at " <<CustomerNum  <<" <-<-<-***" <<endl <<endl <<endl;
+    }
 }
+
+void Queue::dequeue(){
+    if (isEmpty()){
+        cout<<"***->->-> No customer to be served <-<-<-***"<<endl <<endl <<endl;
+    }
+    else{
+        front+=1;
+        int CustomerCalled = data[front];
+        cout <<"Customer "<<CustomerCalled <<" ,go to the counter"<<endl<<endl <<endl ;
+    }
+}
+Queue::~Queue(){}
+
