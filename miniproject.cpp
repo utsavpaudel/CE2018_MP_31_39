@@ -34,14 +34,14 @@ void Queue::enqueue(std::string name){
         queue->next=newNode;
         queue=newNode;
     }   
-    std::cout<<"Your Token Number is "<<token<<". Please have a good day. THANK YOU"<<std::endl;
+    std::cout<<"Your Token Number is "<<token<<". Have a good day. THANK YOU"<<std::endl;
 }
 
 void Queue::dequeue(){
     int data;
     std::string n;
     if(isEmpty()){
-        std::cout<<"Queue Underflow"<<std::endl;
+        std::cout<<"No customers to be served."<<std::endl;
     }
     else{
     	Node* f=queue->next;
@@ -51,8 +51,9 @@ void Queue::dequeue(){
         if(f==queue){
             queue=NULL;
         }
+		std::cout<<"***->->-> Token No.:"<<data<<". Mr. "<<n<<", Please proceed. <-<-<-***"<<std::endl;
     }
-    std::cout<<"Token No.:"<<data<<".Mr. "<<n<<" please proceed"<<std::endl;
+    
 }
 
 int main(){
@@ -62,7 +63,9 @@ int main(){
 
     do{
     	int pin=0;
-    	std::cout<<"Please enter 0 for getting a token(For Customers Only)"<<std::endl;
+		std::cout<<std::endl;
+		std::cout<<"\t******************************"<<std::endl;
+    	std::cout<<std::endl<<"Please enter 0 for getting a token(For Customers Only)"<<std::endl;
     	std::cout<<"Please enter 1 to call a customer(For Bank Purpose only)" <<std::endl;
     	std::cout<<"Please enter 9 to terminate the program (For Bank administrator only)"<<std::endl;
    		std::cin>>a;
@@ -70,7 +73,7 @@ int main(){
    			case 0:
    				{
    				std::string N;
-        		std::cout<<"What should we call you?\t";
+        		std::cout<<std::endl<<"What should we call you?\t";
         		std::cin>>N;
         		q.enqueue(N);
         		choice='y';
@@ -80,11 +83,11 @@ int main(){
         	{
         		std::cout<<"Enter the pin code\t";
         		std::cin>>pin;
-        		if(pin==20562056){
+        		if(pin==1111){
         			q.dequeue();
 				}
         		else{
-        			std::cout<<"Invalid Pin Number. Please Try Again"<<std::endl;
+        			std::cout<<"***->->->Invalid Pin Number. Please Try Again<-<-<-***"<<std::endl;
 				}
         		choice='y';
         		break;
@@ -95,22 +98,23 @@ int main(){
         		std::cout<<"Enter the pin code\t";
         		std::cin>>pin;
         		if(pin==20562056){
-        			std::cout<<"***->->-> The token service is shutting down. Any inconvinience caused is highly regretted. <-<-<-***" <<std::endl <<std::endl <<std::endl;
+        			std::cout<<"***->->-> The token service is currently shut down. Any inconvinience caused is highly regretted. <-<-<-***" <<std::endl <<std::endl <<std::endl;
+					choice='n';
 				}
         		else{
-        			std::cout<<"Invalid Pin Number. Please Try Again"<<std::endl;
+        			std::cout<<"***->->->Invalid Pin Number. Please Try Again<-<-<-***"<<std::endl;
+					choice='y';
 				}
-				choice='n';
         		break;
         	}
         	default:
         		{
-        		std::cout<<"Enter correct command,sir"<<std::endl <<std::endl;
+        		std::cout<<"\tEnter correct command,sir"<<std::endl <<std::endl;
         		choice='y';
         		break;
 			}
 		}
-    	}while(choice!='n'||choice!='n');
+    	}while(choice='y'||choice!='n');
 }
     
 
