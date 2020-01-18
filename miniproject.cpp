@@ -66,15 +66,16 @@ int main(){
 		std::cout<<std::endl;
 		std::cout<<"\t******************************"<<std::endl;
     	std::cout<<std::endl<<"Please enter 0 for getting a token(For Customers Only)"<<std::endl;
-    	std::cout<<"Please enter 1 to call a customer(For Bank Purpose only)" <<std::endl;
-    	std::cout<<"Please enter 9 to terminate the program (For Bank administrator only)"<<std::endl;
+    	std::cout<<"Please enter 1 to call a customer(For Bank Purpose Only)" <<std::endl;
+    	std::cout<<"Please enter 9 to terminate the program (For Bank administrator Only)"<<std::endl;
    		std::cin>>a;
    		switch(a){
    			case 0:
    				{
+   				std::cin.ignore();
    				std::string N;
-        		std::cout<<std::endl<<"What should we call you?\t";
-        		std::cin>>N;
+        		std::cout<<std::endl<<"What should we call you?"<<std::endl;
+        		std::getline(std::cin, N);
         		q.enqueue(N);
         		choice='y';
         		break;
@@ -113,8 +114,9 @@ int main(){
         		choice='y';
         		break;
 			}
+			
 		}
-    	}while(choice='y'||choice!='n');
+    	}while(choice=='y'||choice=='Y');
 }
     
 
