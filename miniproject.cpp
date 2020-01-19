@@ -18,7 +18,7 @@ Queue::~Queue(){
 }
 
 /*
-	If the queue is NULL i.e. there is no customer then it returns true otherwise it returns false
+	If the queue is NULL i.e. when no customer then it returns true otherwise it returns false
 */
 bool Queue::isEmpty(){
     if(queue==NULL){
@@ -94,7 +94,7 @@ int main(){
    		std::cin>>a;
    		
    		/*
-   			Serlects the case to be executed according to the input given the user
+   			Selects the case to be executed according to the input given the user
    		*/
    		switch(a){
    			/*
@@ -111,7 +111,7 @@ int main(){
         		break;
         	}
         	/*
-        		For the Bank staff. Tf  the given input is 1, then the customers name and their corresponding token number are callled out on basis of First Come First serve
+        		For the Bank staff. If the given input is 1, then the customers name and their corresponding token number are callled out on basis of First Come First serve
         	*/
         	case 1:
         	{
@@ -132,14 +132,14 @@ int main(){
         	
         	
         	/*
-        		For the Bank Administrator. if the given input is 9, then the program terminates
+        		For the Bank Administrator. If the given input is 9, then the program terminates.
         	*/
         	
         	case 9:
         	{
         		
         		std::cout<<"Enter the pin code\t";
-        		std::cin>>pin;																				//Asks for the security pin
+        		std::cin>>pin;																				//takes the security pin
         		/*
         			if the pin is correct then the program terminates, else error is displayed and the program doesnot terminates
 				*/
@@ -154,7 +154,7 @@ int main(){
         		break;
         	}
         	/*
-        	If given input doesnot match any of the above cases then default case is executed where the user is asked to give correct input as per the above option
+        	If given input does not match any of the above cases then default case is executed where the user is asked to give correct input as per the above option
         	*/
         	default:
         		{
